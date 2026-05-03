@@ -1,0 +1,10 @@
+{
+  "valid_user": {
+    "phone": "0594582854",
+    "password": "Moh102938"
+  },
+  "invalid_user": {
+    "phone": "0595555555",
+    "password": "WrongPassword"
+  }
+}
