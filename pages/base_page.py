@@ -6,7 +6,7 @@ class BasePage:
 
     def navigate(self, url: str):
         """Navigate to a specific URL."""
-        self.page.goto(url)
+        self.page.goto(url, wait_until="domcontentloaded")
 
     def click(self, selector: str):
         """Click an element using its selector."""

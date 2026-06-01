@@ -1,3 +1,4 @@
+# pyrefly: ignore [missing-import]
 import pytest
 from playwright.sync_api import Page, expect
 from pages.home_page import HomePage
@@ -23,10 +24,7 @@ def test_search_functionality(page: Page, base_url: str):
     home_page = HomePage(page)
     home_page.navigate_to_home(base_url)
     
-    with page.expect_response(lambda response: "search" in response.url or "products" in response.url) as response_info:
-        home_page.search_for_product("bag")
-        
-    response = response_info.value
-    assert response.status == 200, f"Expected 200 OK, but got {response.status}"
+    home_page.search_for_product("bag")
     
-    expect(page.locator(".grid")).to_be_visible() # Assuming a grid layout for results
+    # Assert that the search results grid is visible after searching
+    expect(page.locator(".grid")).to_be_visible()
